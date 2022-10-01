@@ -30,7 +30,7 @@ def sum_list(nummy):
             elif nums[0] == nums[1] == nums[2]:
                 total += nums[2] ** 3
     return total
-C:\Users\ritar\AppData\Roaming\JetBrains\PyCharmCE2022.2\scratches\scratch.py
+
 
 def choise(rand_num, nummy, label):
     if rand_num in nummy[0] and label == 1:
@@ -45,10 +45,11 @@ def choise(rand_num, nummy, label):
 def choise_row(nummy, rand_num):
     rowy = input("Выберите ряд")
     count = 0
-    flag = 1
     while count == 0:
+        if rowy.lower() == "help":
+            print("0 - сдаться", "1 - 3 - выбрать ряд", sep="\n")
+            rowy = input()
         if int(rowy) == 0:
-            flag = 0
             count += 1
             return 0
         elif rowy.isdigit() is False:
@@ -70,7 +71,7 @@ name_2 = str(input("Как вас зовут?"))
 d_x = str(input("Сколько граней у кости?"))
 result_1 = None
 result_2 = None
-while not ((len(a[0]) == len(a[1]) == len(a[2]) == 3 or len(b[0]) == len(b[1]) == len(b[2]) == 3)):
+while not (len(a[0]) == len(a[1]) == len(a[2]) == 3 or len(b[0]) == len(b[1]) == len(b[2]) == 3):
     print("%(name_1)s" % {"name_1": name_1})
     rand_num = rand(1, int(d_x))
     print("Вам выпало", rand_num)
@@ -110,4 +111,3 @@ elif player_1 < player_2:
     print("%(name_2)s выиграл" % {"name_2": name_2})
 elif player_1 == player_2:
     print("Ничья")
-

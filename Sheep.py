@@ -14,12 +14,16 @@ def sum_list(nummy):
         elif len(nums) == 1:
             total += nums[0]
         elif len(nums) == 2:
-            if nums[0] == nums[1]:
+            if nums[0] == nums[1] == 1:
+                total += 2
+            elif nums[0] == nums[1]:
                 total += nums[1] ** 2
             elif nums[0] != nums[1]:
                 total += nums[0] + nums[1]
         elif len(nums) == 3:
-            if nums[0] == nums[1] and nums[1] != nums[2]:
+            if (nums[0] == nums[1] == 1 or nums[1] == nums[2] == 1) and nums[0] != nums[2]:
+                total += 2
+            elif nums[0] == nums[1] and nums[1] != nums[2]:
                 total += nums[1] ** 2 + nums[2]
             elif nums[1] == nums[2] and nums[0] != nums[2]:
                 total += nums[1] ** 2 + nums[0]
@@ -27,6 +31,8 @@ def sum_list(nummy):
                 total += nums[0] + nums[1] + nums[2]
             elif nums[0] == nums[2] and nums[1] != nums[2]:
                 total += nums[2] ** 2 + nums[1]
+            elif nums[0] == nums[1] == nums[2] == 1:
+                total += 3
             elif nums[0] == nums[1] == nums[2]:
                 total += nums[2] ** 3
     return total

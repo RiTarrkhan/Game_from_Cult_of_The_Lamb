@@ -52,15 +52,17 @@ def choise_row(nummy, rand_num):
     rowy = input("Выберите ряд")
     count = 0
     while count == 0:
-        if rowy.lower() == "help":
+        if rowy == "":
+            rowy = input("Выберите число")
+        elif rowy.lower() == "help":
             print("0 - сдаться", "1 - 3 - выбрать ряд", sep="\n")
             rowy = input()
-        if int(rowy) == 0:
+        elif int(rowy) == 0:
             count += 1
             return 0
         elif rowy.isdigit() is False:
             rowy = input("Выберите число")
-        elif int(rowy) < 0 or int(rowy) > 3:
+        elif int(rowy) < 0 or int(rowy) > 3 or rowy == "":
             rowy = input("Выберите число от 0 до 3")
         elif 0 < int(rowy) <= 3:
             if len(nummy[int(rowy) - 1]) == 3:
